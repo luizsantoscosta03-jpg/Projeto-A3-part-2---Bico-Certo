@@ -192,10 +192,19 @@ public class Main {
                 case 6:
                     plataforma.relatorio();
                     break;
+                case 0: {
+                    leia.nextLine(); // limpa o Enter que sobrou do nextInt()
+                    System.out.print("Tem certeza que deseja sair? (s/n): ");
+                    String resposta = leia.nextLine();
 
-                case 0:
-                    System.out.println("Programa encerrado.");
+                    if (resposta.equalsIgnoreCase("s")) {
+                        System.out.println("Programa encerrado.");
+                    } else {
+                        System.out.println("Voltando ao menu...");
+                        opcao = -1; // faz o while continuar e mostrar o menu de novo
+                    }
                     break;
+                }
 
                 default:
                     System.out.println("Opção inválida.");
